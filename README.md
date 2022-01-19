@@ -60,6 +60,18 @@ As a user, I expect to see a map displaying key waybill locations as map markers
 - Use the first available long/lat pair from each milestone's `events` array to create the markers.
 - There should be 1 marker for each milestone, provided the `milestone.events` array contains at least 1 event with a valid long/lat.
 
+### 3. BONUS: Full Event List
+
+**Note**: This user store is optional, and on an "if-you-have-time" basis.
+
+As a user, I expect to be able to view the full list of waybill events.
+
+- The event list should be populated from the `waybill.events` property.
+- The list should **not** be displayed by default.
+- I should see a link or button with the text, "View events"
+- When I click the "View events" link, I should be presented with the full events list
+- The events list can either be a modal which appears, or a panel that expands/collapses
+
 ## Fetching data
 
 - Your project should make an async request for JSON data when the root component mounts to the DOM.
