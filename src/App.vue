@@ -1,21 +1,29 @@
-<script setup>
-// This starter template is using Vue 3 <script setup> SFCs
-// Check out https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup
-import HelloWorld from './components/HelloWorld.vue'
+<script>
+import { ref } from "vue";
+export default {
+  setup() {
+    const count = ref(0);
+
+    function increment(number) {
+      count.value = count.value + 1;
+    }
+
+    function reset() {
+      count.value = 0;
+    }
+
+    return { count, increment, reset };
+  },
+};
 </script>
 
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
-  <HelloWorld msg="Hello Vue 3 + Vite" />
+  <div id="app">
+    <h1 class="title">Hello, world!</h1>
+    <p>The count is {{ count }}.</p>
+    <button @click="increment">Increment count</button>
+    <button @click="reset">Reset count</button>
+  </div>
 </template>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+<style></style>
