@@ -1,5 +1,5 @@
 <script>
-import { onBeforeMount, onMounted, ref } from "vue";
+import { onMounted, ref } from "vue";
 import HeaderVue from "./components/Header.vue";
 import WaybillDataViewVue from "./components/WaybillDataView.vue";
 import LoadingStateVue from "./components/LoadingState.vue";
