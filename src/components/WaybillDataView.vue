@@ -22,7 +22,10 @@
         </tr>
       </tbody>
     </table>
-    <map-vue :waypoints="data.milestones"/>
+    <map-vue
+      :waypoints="data.milestones"
+      :center="midpoint"
+    />
   </div>
 </template>
 
@@ -45,7 +48,15 @@ export default {
     const formattedEtaDate = computed(() => {
       return dayJs(props.data.waybill?.eta_date).format("MM/DD/YYYY");
     });
-    return { formattedCreatedDate, formattedEtaDate }
+    const midpoint = computed(() => {
+      const originLongitude = parseFloat(props.data.waybill?.origin.longitude);
+      const orginLatitude = parseFloat(props.data.waybill?.origin.latitude);
+      const destinationLongitude = parseFloat(props.data.waybill?.destination.longitude);
+      const destinationLatitude = parseFloat(props.data.waybill?.destination.latitude);
+      return [(originLongitude + destinationLongitude) / 2, (orginLatitude + destinationLatitude) / 2];
+
+    })
+    return { formattedCreatedDate, formattedEtaDate, midpoint }
   }
 }
 </script>
