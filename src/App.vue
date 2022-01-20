@@ -1,20 +1,31 @@
 <script>
-import { ref } from "vue";
+import { onBeforeMount, onMounted, ref } from "vue";
 import HeaderVue from "./components/Header.vue";
+import WaybillDataViewVue from "./components/WaybillDataView.vue";
+import LoadingStateVue from "./components/LoadingState.vue";
 export default {
-  components: { HeaderVue },
+  components: {
+    HeaderVue,
+    WaybillDataViewVue,
+    LoadingStateVue
+  },
   setup() {
-    const count = ref(0);
+    const waybillData = ref({});
+    const isLoading = ref(false);
 
-    function increment(number) {
-      count.value = count.value + 1;
+    async function getWaybillData() {
+      isLoading.value = true;
+      const response = await fetch("https://mocki.io/v1/de8e9ad3-bd34-445e-87b3-c44e6e3efbe9");
+      const data = await response.json();
+      if (data) {
+        waybillData.value = data;
+      }
+      isLoading.value = false;
     }
 
-    function reset() {
-      count.value = 0;
-    }
+    onMounted(async () => await getWaybillData());
 
-    return { count, increment, reset };
+    return { waybillData, isLoading };
   },
 };
 </script>
@@ -22,10 +33,10 @@ export default {
 <template>
   <div id="app">
     <header-vue />
-    <h1 class="title">Hello, world!</h1>
-    <p>The count is {{ count }}.</p>
-    <button @click="increment">Increment count</button>
-    <button @click="reset">Reset count</button>
+    <waybill-data-view-vue
+      v-if="!isLoading"
+      :data="waybillData" />
+    <loading-state-vue v-else />
   </div>
 </template>
 
