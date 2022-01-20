@@ -1,35 +1,36 @@
 <template>
-  <div class="columns ml-4">
-    <div class="column is-narrow">
-      <p class="is-size-7">Equipment ID</p>
-      <p class="is-size-7">{{ data.asset?.equipment_id  }}</p>
-    </div>
-    <div class="column is-narrow">
-      <p class="is-size-7">Created</p>
-      <p class="is-size-7">{{ formattedCreatedDate }}</p>
-    </div>
-    <div class="column is-narrow">
-      <p class="is-size-7">Origin</p>
-      <p class="is-size-7">{{ data.asset?.origin_location }}</p>
-    </div>
-    <div class="column is-narrow">
-      <p class="is-size-7">Destination</p>
-      <p class="is-size-7">{{ data.asset?.destination_location }}</p>
-    </div>
-    <div class="column is-narrow">
-      <p class="is-size-7">Status</p>
-      <p class="is-size-7">{{ data.asset?.status }}</p>
-    </div>
-    <div class="column is-narrow">
-      <p class="is-size-7">ETA</p>
-      <p class="is-size-7">{{ formattedEtaDate }}</p>
-    </div>
+  <div>
+    <table class="table ml-4">
+      <thead>
+        <tr>
+          <th>Equipment ID</th>
+          <th>Created</th>
+          <th>Origin</th>
+          <th>Destination</th>
+          <th>Status</th>
+          <th>ETA</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>{{ data.asset?.equipment_id  }}</td>
+          <td>{{ formattedCreatedDate }}</td>
+          <td>{{ data.asset?.origin_location }}</td>
+          <td>{{ data.asset?.destination_location }}</td>
+          <td class="is-uppercase">{{ data.asset?.status }}</td>
+          <td>{{ formattedEtaDate }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <map-vue :waypoints="data.milestones"/>
   </div>
 </template>
 
 <script>
 import dayJs from "dayjs";
+import MapVue from "./Map.vue";
 export default {
+  components: { MapVue },
   props: {
     data: {
       type: Object,
