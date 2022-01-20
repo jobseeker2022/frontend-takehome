@@ -29,6 +29,7 @@
 <script>
 import dayJs from "dayjs";
 import MapVue from "./Map.vue";
+import { computed } from "vue";
 export default {
   components: { MapVue },
   props: {
@@ -37,13 +38,14 @@ export default {
       default: () => {}
     }
   },
-  computed: {
-    formattedCreatedDate() {
-      return dayJs(this.data.waybill?.created_date).format("MM/DD/YYYY");
-    },
-    formattedEtaDate() {
-      return dayJs(this.data.waybill?.eta_date).format("MM/DD/YYYY");
-    }
+  setup(props) {
+    const formattedCreatedDate = computed(() => {
+      return dayJs(props.data.waybill?.created_date).format("MM/DD/YYYY");
+    });
+    const formattedEtaDate = computed(() => {
+      return dayJs(props.data.waybill?.eta_date).format("MM/DD/YYYY");
+    });
+    return { formattedCreatedDate, formattedEtaDate }
   }
 }
 </script>
