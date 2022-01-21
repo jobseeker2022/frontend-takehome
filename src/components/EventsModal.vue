@@ -1,6 +1,6 @@
 <template>
   <div class="modal" :class="{'is-active': showEventsModal === true }">
-    <div class="modal-background"></div>
+    <div class="modal-background" @click="$emit('close', false)"></div>
     <div class="modal-content">
       <div class="event-container m-auto">
         <table class="table is-fullwidth">
