@@ -19,7 +19,6 @@
                 <td>{{ event.sighting_event_code_text }}</td>
                 <td>{{ event.train_alpha_code }}</td>
                 <td>{{ event.location.display_name }}</td>
-
               </tr>
             </template>
 
