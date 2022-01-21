@@ -2,6 +2,10 @@
 
 This repo has everything you need to complete the take-home assignment. Know that we are excited about you as a candidate, and can't wait to see what you build!
 
+Applicant Note:
+
+for Mapbox API, place your API token in a .env file locally at the root of this projec, using the variable name found in env.example
+
 ## Requirements
 
 - Node v14 or above
@@ -50,7 +54,7 @@ Beneath the header, I expect to see a table view with an overview of the waybill
 - Waybill asset status
 - Waybill ETA in MM/DD/YYYY format
   - **BONUS**: Add conditional logic to render waybill ETA with red text if ETA is in the past and waybill asset status is not "Complete"
-  
+
 ### 2. Map Markers
 
 As a user, I expect to see a map displaying key waybill locations as map markers.
@@ -83,4 +87,3 @@ As a user, I expect to be able to view the full list of waybill events.
 
 - Follow [this Figma mockup](https://www.figma.com/file/ejrZ0CzAEJ4zLtlXyvB8Po/FE-take-home?node-id=0%3A1) for the general layout of your project
 - Feel free to select colors, fonts etc. but don't feel pressured to do so.
-
