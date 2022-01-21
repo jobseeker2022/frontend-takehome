@@ -87,6 +87,6 @@ export default {
     width: 100%;
   }
   .red {
-    color: maroon;
+    color: red;
   }
 </style>
