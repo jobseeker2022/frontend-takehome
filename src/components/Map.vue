@@ -47,7 +47,7 @@ export default {
           container: "map",
           style: "mapbox://styles/mapbox/streets-v11",
           center: center,
-          zoom: 5,
+          zoom: 4,
         });
         addMarkers();
     });
@@ -58,7 +58,7 @@ export default {
 
 <style scoped>
   #map {
-    height: 80vh;
+    height: 50vh;
     width: 100%;
   }
 </style>
