@@ -1,5 +1,5 @@
 <template>
-  <div id="map" class="m-auto mt-4"></div>
+  <div id="map" class="mt-4"></div>
 </template>
 
 <script>
@@ -47,7 +47,7 @@ export default {
           container: "map",
           style: "mapbox://styles/mapbox/streets-v11",
           center: center,
-          zoom: 4,
+          zoom: 5,
         });
         addMarkers();
     });
@@ -58,7 +58,7 @@ export default {
 
 <style scoped>
   #map {
-    height: 50vh;
-    width: 80vw;
+    height: 80vh;
+    width: 100%;
   }
 </style>

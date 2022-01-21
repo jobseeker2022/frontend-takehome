@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <table class="table ml-4">
+  <div class="waybill-data-container">
+    <table class="table is-fullwidth">
       <thead>
         <tr>
           <th>Equipment ID</th>
@@ -60,3 +60,9 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+  .waybill-data-container {
+    width: 100%;
+  }
+</style>

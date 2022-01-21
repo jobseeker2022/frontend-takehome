@@ -7,6 +7,5 @@
 <style lang="css" scoped>
   .tio-header {
     border-bottom: 4px solid #54ADDF;
-    margin: 0 10px;
   }
 </style>
